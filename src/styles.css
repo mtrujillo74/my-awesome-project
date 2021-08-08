@@ -1,0 +1,58 @@
+body {
+  background-image: url(../media/fall_halloween.jpg);
+  margin: 0 auto;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+div.nav-bar {
+  background-color: blue;
+}
+div {
+  display: block;
+}
+p {
+  display: block;
+  text-align: center;
+  font-weight: 400px;
+  font-size: 100px;
+}
+
+div.temp-container {
+  display: block;
+  width: 50%;
+  margin: 0 auto;
+  border: 2px solid black;
+  background-color: #eac0d4;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+  padding: 20px;
+  top: 50px;
+}
+
+.forcast-container {
+  display: block;
+  width: 50%;
+  margin: 0 auto;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: palevioletred;
+  position: relative;
+  top: 40px;
+  padding: 50px;
+  text-align: center;
+}
+
+.time-container {
+  display: block;
+  width: 50%;
+  margin: 0 auto;
+  border: 10px solid black;
+  border-radius: 30px;
+  background-color: turquoise;
+  position: relative;
+  top: 120px;
+  padding: 10px;
+  text-align: center;
+}
