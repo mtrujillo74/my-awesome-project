@@ -15,70 +15,64 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
-    <div class="temp-container">
-      <nav class="navbar navbar-light bg-transparent">
-        <div class="container-fluid">
-          <!---<a class="navbar-brand">Weather</a>--->
-          <form class="d-flex" id="city-search">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-              id="search-city"
-            />
-            <button
-              class="btn btn-outline-success"
-              type="submit"
-              id="button-search"
-            >
-              Search
-            </button>
-            <button
-              type="button"
-              class="btn btn-outline-primary"
-              id="current-location-search"
-            >
-              Current Location
-            </button>
+    <div class="container">
+      <div class="weather-app-container">
+        <div class="temp-container">
+          <form id="city-search">
+            <div class="row">
+              <div class="col-9">
+                <input
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                  id="search-city"
+                />
+              </div>
+              <div class="col-3 p-0">
+                <button type="submit" id="button-search">Search</button>
+              </div>
+            </div>
           </form>
+          <h1 id="user-city">Santa Barbara, Ca</h1>
+          <ul class="description">
+            <li>
+              <p class="description-format" id="current-day"></p>
+              <p class="description-format" id="current-time"></p>
+            </li>
+            <li>description</li>
+          </ul>
+          <div class="row">
+            <div class="col-2">🌪</div>
+            <div class="col-4" id="temp-city">79ºF</div>
+          </div>
         </div>
-      </nav>
-      <h1 id="user-city">Santa Barbara, Ca</h1>
-      <h2 id="temp-city">79ºF</h2>
-      <p>🌪</p>
-      <div class="row">
-        <div class="col-4" id="current-day"></div>
-        <div class="col-4" id="current-time"></div>
-        <!----  <div class="col-2">July</div>
-        <div class="col-2">12</div>
-        <div class="col-1">|</div>
-        <div class="col-3">2021</div> --->
-      </div>
-    </div>
-    <div class="forcast-container">
-      <div class="row">
-        <div class="col-12">Five Day Forcast</div>
-      </div>
-      <br />
-      <div class="row">
-        <div class="col-3">Day1</div>
-        <div class="col-2">Day2</div>
-        <div class="col-2">Day3</div>
-        <div class="col-2">Day4</div>
-        <div class="col-3">Day5</div>
-      </div>
-      <div class="row">
-        <div class="col-3">🌦</div>
-        <div class="col-2">🌤</div>
-        <div class="col-2">🌪</div>
-        <div class="col-2">🌫</div>
-        <div class="col-3">🌨</div>
-      </div>
-    </div>
-    <div class="time-container">
-      <div class="row">
-        <div class="col-12">time</div>
+
+        <div class="forcast-container">
+          <div class="row">
+            <div class="col-12">Five Day Forcast</div>
+          </div>
+          <br />
+          <div class="row">
+            <div class="col-3">Day1</div>
+            <div class="col-2">Day2</div>
+            <div class="col-2">Day3</div>
+            <div class="col-2">Day4</div>
+            <div class="col-3">Day5</div>
+          </div>
+          <div class="row">
+            <div class="col-3">🌦</div>
+            <div class="col-2">🌤</div>
+            <div class="col-2">🌪</div>
+            <div class="col-2">🌫</div>
+            <div class="col-3">🌨</div>
+          </div>
+        </div>
+
+        <div class="time-container">
+          <div class="row">
+            <div class="col-12">time</div>
+          </div>
+        </div>
       </div>
     </div>
     <script src="src/index.js"></script>

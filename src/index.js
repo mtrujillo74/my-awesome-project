@@ -65,4 +65,4 @@ let city = document.querySelector("#city-search");
 city.addEventListener("submit", updateCity);
 
 let searchCurrentLocation = document.querySelector("#current-location-search");
-searchCurrentLocation.addEventListener("click", callNavGeo);
+//searchCurrentLocation.addEventListener("click", callNavGeo);
