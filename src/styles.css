@@ -15,6 +15,10 @@ p {
   margin: 0px;
   padding: 0px;
 }
+span {
+  font-size: 10px;
+  font-weight: 10px;
+}
 .city-format {
   font-size: 30px;
   font-weight: 100px;

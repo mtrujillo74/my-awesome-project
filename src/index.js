@@ -1,5 +1,6 @@
 //API Key for Weather
 let apiKey = "14086888615f30c32796187ed31db831";
+let celciusTemp = null;
 
 //Function for updating Day and Time
 function formatDate(timestamp) {
@@ -31,6 +32,9 @@ function displayTemp(response) {
   let timeStampElement = document.querySelector("#timestamp");
   let percipitationElement = document.querySelector("#rain");
   let iconElement = document.querySelector("#icon");
+
+  celciusTemp = response.data.list[0].main.temp;
+
   temperature.innerHTML = Math.round(response.data.list[0].main.temp);
   descriptionElement.innerHTML = response.data.list[0].weather[0].description;
   humidityElement.innerHTML = response.data.list[0].main.humidity;
@@ -57,12 +61,26 @@ function updateCity(event) {
 let city = document.querySelector("#city-search");
 city.addEventListener("submit", updateCity);
 
-//Weather Information will automatically load with current location.
-// function callNavGeo(event) {
-//   event.preventDefault;
-//   navigator.geolocation.getCurrentPosition(updateCurrentLocationTemp);
-// }
+function unitConvCToF(event) {
+  event.preventDefault;
+  let unitFTemperatureElement = document.querySelector("#temp-city");
+  let unitFTemperature = (celciusTemp * 9) / 5 + 32;
+  unitFTemperatureElement.innerHTML = Math.round(unitFTemperature);
+}
+function unitConvFToC(event) {
+  event.preventDefault;
+  let unitCTemperatureElement = document.querySelector("#temp-city");
+  unitCTemperatureElement.innerHTML = Math.round(celciusTemp);
+}
 
+let fahrenheit = document.querySelector("#units-F");
+fahrenheit.addEventListener("click", unitConvCToF);
+
+let celcius = document.querySelector("#units-C");
+celcius.addEventListener("click", unitConvFToC);
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/*Weather Information will automatically load with current location.*/
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function updateCurrentLocationTemp(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
@@ -83,6 +101,9 @@ function displayCoordTemp(response) {
   let percipitationElement = document.querySelector("#rain");
   let iconElement = document.querySelector("#icon");
   let cityElement = document.querySelector("#user-city");
+
+  celciusTemp = response.data.main.temp;
+
   temperature.innerHTML = Math.round(response.data.main.temp);
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
@@ -97,6 +118,4 @@ function displayCoordTemp(response) {
 }
 
 navigator.geolocation.getCurrentPosition(updateCurrentLocationTemp);
-//callNavGeo();
-
-let searchCurrentLocation = document.querySelector("#current-location-search");
+//////////////////////////////////
