@@ -6,9 +6,11 @@ now = new Date();
 function displayTemp(response) {
   //temp is returned in degrees C
   let temperature = Math.round(response.data.list[0].main.temp);
+  let weatherDesc = response.data.list[0].weather[0].description;
   console.log(response);
   let tempUpdate = document.querySelector("#temp-city");
-  tempUpdate.innerHTML = `${temperature}℃`;
+  let weatherDescUpdate = document.querySelector("#weather-description");
+  weatherDescUpdate.innerHTML = `${weatherDesc}`;
 }
 
 function updateCity(event) {
