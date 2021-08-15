@@ -41,7 +41,7 @@ function displayTemp(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.list[0].weather[0].icon}@2x.png`
   );
-  console.log(response);
+  //console.log(response);
 }
 
 function updateCity(event) {
@@ -54,10 +54,14 @@ function updateCity(event) {
   cityupdate.innerHTML = cityInput.value;
 }
 
-function callNavGeo(event) {
-  event.preventDefault;
-  navigator.geolocation.getCurrentPosition(updateCurrentLocationTemp);
-}
+let city = document.querySelector("#city-search");
+city.addEventListener("submit", updateCity);
+
+//Weather Information will automatically load with current location.
+// function callNavGeo(event) {
+//   event.preventDefault;
+//   navigator.geolocation.getCurrentPosition(updateCurrentLocationTemp);
+// }
 
 function updateCurrentLocationTemp(position) {
   let lat = position.coords.latitude;
@@ -69,14 +73,30 @@ function updateCurrentLocationTemp(position) {
 }
 
 function displayCoordTemp(response) {
-  //console.log(response);
-  let coordtemp = Math.round(response.data.main.temp);
-  let tempUpdate = document.querySelector("#temp-city");
-  tempUpdate.innerHTML = `${coordtemp}℃`;
+  console.log(response);
+
+  let temperature = document.querySelector("#temp-city");
+  let descriptionElement = document.querySelector("#weather-description");
+  let humidityElement = document.querySelector("#humidity");
+  let windSpeedElement = document.querySelector("#wind-speed");
+  let timeStampElement = document.querySelector("#timestamp");
+  let percipitationElement = document.querySelector("#rain");
+  let iconElement = document.querySelector("#icon");
+  let cityElement = document.querySelector("#user-city");
+  temperature.innerHTML = Math.round(response.data.main.temp);
+  descriptionElement.innerHTML = response.data.weather[0].description;
+  humidityElement.innerHTML = response.data.main.humidity;
+  windSpeedElement.innerHTML = response.data.wind.speed;
+  timeStampElement.innerHTML = formatDate(response.data.dt * 1000);
+  percipitationElement.innerHTML = response.data.rain;
+  cityElement.innerHTML = response.data.name;
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
-let city = document.querySelector("#city-search");
-city.addEventListener("submit", updateCity);
+navigator.geolocation.getCurrentPosition(updateCurrentLocationTemp);
+//callNavGeo();
 
 let searchCurrentLocation = document.querySelector("#current-location-search");
-//searchCurrentLocation.addEventListener("click", callNavGeo);
