@@ -5,12 +5,15 @@ now = new Date();
 
 function displayTemp(response) {
   //temp is returned in degrees C
-  let temperature = Math.round(response.data.list[0].main.temp);
-  let weatherDesc = response.data.list[0].weather[0].description;
+  let temperature = document.querySelector("#temp-city");
+  let descriptionElement = document.querySelector("#weather-description");
+  let humidityElement = document.querySelector("#humidity");
+  let windSpeedElement = document.querySelector("#wind-speed");
+  temperature.innerHTML = Math.round(response.data.list[0].main.temp);
+  descriptionElement.innerHTML = response.data.list[0].weather[0].description;
+  humidityElement.innerHTML = response.data.list[0].main.humidity;
+  windSpeedElement.innerHTML = response.data.list[0].wind.speed;
   console.log(response);
-  let tempUpdate = document.querySelector("#temp-city");
-  let weatherDescUpdate = document.querySelector("#weather-description");
-  weatherDescUpdate.innerHTML = `${weatherDesc}`;
 }
 
 function updateCity(event) {

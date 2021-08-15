@@ -6,6 +6,10 @@ body {
   font-family: Roboto, arial, sans-serif;
 }
 
+li {
+  text-transform: capitalize;
+}
+
 p {
   display: inline;
   margin: 0px;
@@ -30,7 +34,7 @@ p {
   margin: 40px auto;
   padding: 0px;
 }
-.description {
+.short-summary {
   list-style-type: none;
   margin: 0px;
   padding: 0px;

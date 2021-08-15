@@ -34,7 +34,7 @@
             </div>
           </form>
           <h1 class="city-format" id="user-city">Santa Barbara, Ca</h1>
-          <ul class="description">
+          <ul class="short-summary">
             <li>
               <p class="description-format" id="current-day"></p>
               <p class="description-format" id="current-time"></p>
@@ -45,14 +45,14 @@
 
         <div class="summary-container">
           <div class="row">
-            <div class="col-8">
-              <p class="temperature-format">🌪</p>
-              <p class="temperature-format" id="temp-city">79ºF</p>
+            <div class="col-6">
+              <p class="temperature-format float-left">🌪</p>
+              <p class="temperature-format float-left" id="temp-city">79ºF</p>
             </div>
-            <div class="col-4">
-              <ul class="description">
-                <li>Humidity</li>
-                <li>Wind Speed</li>
+            <div class="col-6">
+              <ul class="short-summary">
+                <li>Humidity: <span id="humidity"></span>%</li>
+                <li>Wind Speed: <span id="wind-speed"></span>m/sec</li>
                 <li>Percipitation</li>
               </ul>
             </div>
