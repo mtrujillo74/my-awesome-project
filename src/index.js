@@ -1,18 +1,17 @@
 //API Key for Weather
 let apiKey = "14086888615f30c32796187ed31db831";
-//Output Day and Time
-now = new Date();
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
 
+//Function for updating Day and Time
 function formatDate(timestamp) {
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
   let date = new Date(timestamp);
   let hours = date.getHours();
   let minutes = date.getMinutes();
