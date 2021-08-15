@@ -2,6 +2,26 @@
 let apiKey = "14086888615f30c32796187ed31db831";
 //Output Day and Time
 now = new Date();
+let days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  let day = days[date.getDay()];
+  return `${day} ${hours}:${minutes}`;
+}
 
 function displayTemp(response) {
   //temp is returned in degrees C
@@ -9,10 +29,14 @@ function displayTemp(response) {
   let descriptionElement = document.querySelector("#weather-description");
   let humidityElement = document.querySelector("#humidity");
   let windSpeedElement = document.querySelector("#wind-speed");
+  let timeStampElement = document.querySelector("#timestamp");
+  let percipitationElement = document.querySelector("#rain");
   temperature.innerHTML = Math.round(response.data.list[0].main.temp);
   descriptionElement.innerHTML = response.data.list[0].weather[0].description;
   humidityElement.innerHTML = response.data.list[0].main.humidity;
   windSpeedElement.innerHTML = response.data.list[0].wind.speed;
+  timeStampElement.innerHTML = formatDate(response.data.list[0].dt * 1000);
+  percipitationElement.innerHTML = response.data.list[0].rain;
   console.log(response);
 }
 
@@ -46,25 +70,6 @@ function displayCoordTemp(response) {
   let tempUpdate = document.querySelector("#temp-city");
   tempUpdate.innerHTML = `${coordtemp}℃`;
 }
-
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-
-let hours = now.getHours();
-let minutes = now.getMinutes();
-let timeMilitary = `${hours}:${minutes}`;
-
-let day = document.querySelector("#current-day");
-let time = document.querySelector("#current-time");
-day.innerHTML = days[now.getDay()];
-time.innerHTML = timeMilitary;
 
 let city = document.querySelector("#city-search");
 city.addEventListener("submit", updateCity);
