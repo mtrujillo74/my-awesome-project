@@ -27,6 +27,7 @@ p {
 }
 
 .temperature-format {
+  display: inline;
   font-size: 60px;
   font-weight: 150px;
 }

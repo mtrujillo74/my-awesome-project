@@ -30,12 +30,17 @@ function displayTemp(response) {
   let windSpeedElement = document.querySelector("#wind-speed");
   let timeStampElement = document.querySelector("#timestamp");
   let percipitationElement = document.querySelector("#rain");
+  let iconElement = document.querySelector("#icon");
   temperature.innerHTML = Math.round(response.data.list[0].main.temp);
   descriptionElement.innerHTML = response.data.list[0].weather[0].description;
   humidityElement.innerHTML = response.data.list[0].main.humidity;
   windSpeedElement.innerHTML = response.data.list[0].wind.speed;
   timeStampElement.innerHTML = formatDate(response.data.list[0].dt * 1000);
   percipitationElement.innerHTML = response.data.list[0].rain;
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.list[0].weather[0].icon}@2x.png`
+  );
   console.log(response);
 }
 
