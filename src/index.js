@@ -6,7 +6,7 @@ now = new Date();
 function displayTemp(response) {
   //temp is returned in degrees C
   let temperature = Math.round(response.data.list[0].main.temp);
-  //console.log(response);
+  console.log(response);
   let tempUpdate = document.querySelector("#temp-city");
   tempUpdate.innerHTML = `${temperature}℃`;
 }
